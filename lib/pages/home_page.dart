@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/components/todo_item.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -6,25 +7,31 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xff151515),
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
-          'ToDo',
+          'Todo List',
           style: TextStyle(
-            color: Colors.white,
-            fontSize: 24,
+            color: Colors.black,
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: Colors.blue[700],
+        backgroundColor: const Color(0xff0ab6ab),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        backgroundColor: Colors.blue[500],
+        backgroundColor: const Color(0xff0ab6ab),
         child: const Icon(
           Icons.add,
-          color: Colors.white,
+          color: Colors.black,
           size: 28,
         ),
+      ),
+      body: const Padding(
+        padding: EdgeInsets.all(16),
+        child: ToDoItem(),
       ),
     );
   }
