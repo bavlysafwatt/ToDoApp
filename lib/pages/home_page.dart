@@ -35,9 +35,9 @@ class HomePage extends StatelessWidget {
           size: 28,
         ),
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(16),
-        child: ToDoItem(),
+      body: ListView.builder(
+        itemCount: 7,
+        itemBuilder: (context, index) => const ToDoItem(),
       ),
     );
   }
