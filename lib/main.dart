@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:todo_app/models/todo_model.dart';
 import 'package:todo_app/pages/home_page.dart';
 
 void main() async {
   await Hive.initFlutter();
+  Hive.registerAdapter(TodoModelAdapter());
   await Hive.openBox('todoBox');
   runApp(const ToDoApp());
 }
