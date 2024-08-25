@@ -43,7 +43,14 @@ class _AddTodoFormState extends State<AddTodoForm> {
                 const SizedBox(width: 8),
                 CustomButton(
                   text: 'Add',
-                  onTap: () {},
+                  onTap: () {
+                    if (formKey.currentState!.validate()) {
+                    } else {
+                      setState(() {
+                        autovalidateMode = AutovalidateMode.always;
+                      });
+                    }
+                  },
                 ),
               ],
             ),
