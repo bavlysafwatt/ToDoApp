@@ -27,6 +27,10 @@ class ToDoItem extends StatelessWidget {
               fontSize: 18,
             ),
           ),
+          trailing: const Icon(
+            Icons.arrow_back_ios,
+            color: Colors.white,
+          ),
         ),
       ),
     );
