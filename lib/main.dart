@@ -15,6 +15,7 @@ class ToDoApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.grey),
         useMaterial3: true,
+        fontFamily: 'Ubuntu',
       ),
       home: const HomePage(),
     );
