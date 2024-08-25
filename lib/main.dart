@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/pages/home_page.dart';
 
 void main() {
   runApp(const ToDoApp());
@@ -15,7 +16,7 @@ class ToDoApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.grey),
         useMaterial3: true,
       ),
-      home: const Scaffold(),
+      home: const HomePage(),
     );
   }
 }
