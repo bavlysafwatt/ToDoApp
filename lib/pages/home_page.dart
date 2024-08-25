@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/components/dialog_box.dart';
 import 'package:todo_app/components/todo_item.dart';
 
 class HomePage extends StatelessWidget {
@@ -21,7 +22,12 @@ class HomePage extends StatelessWidget {
         backgroundColor: const Color(0xff0ab6ab),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (context) => const DialogBox(),
+          );
+        },
         backgroundColor: const Color(0xff0ab6ab),
         child: const Icon(
           Icons.add,
