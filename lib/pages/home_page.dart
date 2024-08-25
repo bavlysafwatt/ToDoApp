@@ -17,6 +17,15 @@ class HomePage extends StatelessWidget {
         ),
         backgroundColor: Colors.blue[700],
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: Colors.blue[500],
+        child: const Icon(
+          Icons.add,
+          color: Colors.white,
+          size: 28,
+        ),
+      ),
     );
   }
 }
