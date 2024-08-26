@@ -11,31 +11,51 @@ class AddTodoForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 22.0),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          const SizedBox(height: 10),
+          Row(
+            children: [
+              GestureDetector(
+                onTap: () => Navigator.pop(context),
+                child: Icon(
+                  Icons.cancel,
+                  color: Colors.grey.shade800,
+                ),
+              ),
+              const SizedBox(width: 60),
+              const Text(
+                'Add New Task',
+                style: TextStyle(
+                  color: Color(0xff008080),
+                  fontWeight: FontWeight.bold,
+                ),
+              )
+            ],
+          ),
+          const SizedBox(height: 20),
+          Text(
+            'Add Text',
+            style: TextStyle(
+              color: Colors.grey.shade600,
+              fontSize: 15,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 10),
           CustomTextField(
-            hintText: 'Title',
+            hintText: 'Enter Text',
             maxLines: 1,
             controller: title,
           ),
-          const SizedBox(height: 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              CustomButton(
-                text: 'Cancel',
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-              const SizedBox(width: 8),
-              CustomButton(
-                text: 'Add',
-                onTap: onTap,
-              ),
-            ],
+          const SizedBox(height: 20),
+          Center(
+            child: CustomButton(
+              text: 'Add',
+              onTap: onTap,
+            ),
           ),
         ],
       ),
