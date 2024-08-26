@@ -59,18 +59,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.yellow[200],
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text(
-          'TO DO',
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 20,
-          ),
-        ),
-        backgroundColor: Colors.yellow,
-      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showDialog(
@@ -81,21 +69,59 @@ class _HomePageState extends State<HomePage> {
             ),
           );
         },
-        backgroundColor: Colors.yellow,
+        backgroundColor: Colors.white,
         child: const Icon(
           Icons.add,
-          color: Colors.black,
-          size: 28,
+          color: Color(0xff249fff),
+          size: 30,
         ),
       ),
-      body: ListView.builder(
-        itemCount: database.toDoList.length,
-        itemBuilder: (context, index) => ToDoItem(
-          todoModel: database.toDoList[index],
-          onChanged: (value) => checkBoxChanged(value, index),
-          onDelete: (context) => deleteTask(index),
-        ),
-      ),
+      body: Container(
+          padding: const EdgeInsets.only(top: 80, left: 30, right: 30),
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(colors: [
+              // ignore: use_full_hex_values_for_flutter_colors
+              Color(0xff232fda2),
+              Color(0xff13d8ca),
+              Color(0xff09adfe),
+            ], begin: Alignment.topLeft, end: Alignment.bottomRight),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'HELLO\nBAVLY!',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 34,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 10),
+              const Text(
+                'Good Morning',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 22,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              const SizedBox(height: 20),
+              Expanded(
+                child: ListView.builder(
+                  padding: const EdgeInsets.all(0),
+                  itemCount: database.toDoList.length,
+                  itemBuilder: (context, index) => ToDoItem(
+                    todoModel: database.toDoList[index],
+                    onChanged: (value) => checkBoxChanged(value, index),
+                    onDelete: (context) => deleteTask(index),
+                  ),
+                ),
+              )
+            ],
+          )),
     );
   }
 }
