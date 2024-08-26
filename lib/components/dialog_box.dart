@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:todo_app/components/add_todo_form.dart';
 
 class DialogBox extends StatelessWidget {
-  const DialogBox({super.key});
+  const DialogBox({super.key, required this.onTap, required this.title});
+
+  final void Function() onTap;
+  final TextEditingController title;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +23,10 @@ class DialogBox extends StatelessWidget {
           color: const Color(0xff0ab6ab),
           borderRadius: BorderRadius.circular(10),
         ),
-        child: const AddTodoForm(),
+        child: AddTodoForm(
+          onTap: onTap,
+          title: title,
+        ),
       ),
     );
   }

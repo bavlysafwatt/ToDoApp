@@ -3,6 +3,7 @@ import 'package:hive/hive.dart';
 import 'package:todo_app/components/dialog_box.dart';
 import 'package:todo_app/components/todo_item.dart';
 import 'package:todo_app/data/database.dart';
+import 'package:todo_app/models/todo_model.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -35,6 +36,19 @@ class _HomePageState extends State<HomePage> {
     database.updateData();
   }
 
+  void saveNewTask() {
+    if (taskName.text.isNotEmpty) {
+      TodoModel todoModel =
+          TodoModel(taskName: taskName.text, isCompleted: false);
+      setState(() {
+        database.toDoList.add(todoModel);
+        taskName.clear();
+      });
+      Navigator.pop(context);
+      database.updateData();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,7 +69,10 @@ class _HomePageState extends State<HomePage> {
         onPressed: () {
           showDialog(
             context: context,
-            builder: (context) => const DialogBox(),
+            builder: (context) => DialogBox(
+              onTap: saveNewTask,
+              title: taskName,
+            ),
           );
         },
         backgroundColor: const Color(0xff0ab6ab),
