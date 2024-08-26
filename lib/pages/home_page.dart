@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:todo_app/components/day_tile.dart';
 import 'package:todo_app/components/dialog_box.dart';
 import 'package:todo_app/components/todo_item.dart';
 import 'package:todo_app/data/database.dart';
@@ -16,6 +17,7 @@ class _HomePageState extends State<HomePage> {
   final box = Hive.box('todoBox');
   Database database = Database();
   TextEditingController taskName = TextEditingController();
+  bool today = true, tomorrow = false, nextWeek = false;
 
   @override
   void initState() {
@@ -107,6 +109,51 @@ class _HomePageState extends State<HomePage> {
                   fontSize: 22,
                   fontWeight: FontWeight.w400,
                 ),
+              ),
+              const SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        today = true;
+                        tomorrow = false;
+                        nextWeek = false;
+                      });
+                    },
+                    child: DayTile(
+                      day: 'Today',
+                      isActive: today,
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        today = false;
+                        tomorrow = true;
+                        nextWeek = false;
+                      });
+                    },
+                    child: DayTile(
+                      day: 'Tomorrow',
+                      isActive: tomorrow,
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        today = false;
+                        tomorrow = false;
+                        nextWeek = true;
+                      });
+                    },
+                    child: DayTile(
+                      day: 'Next Week',
+                      isActive: nextWeek,
+                    ),
+                  ),
+                ],
               ),
               const SizedBox(height: 20),
               Expanded(
