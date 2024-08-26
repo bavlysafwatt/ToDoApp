@@ -1,28 +1,18 @@
 import 'package:hive_flutter/adapters.dart';
-import 'package:todo_app/models/todo_model.dart';
 
 class Database {
   List toDoList = [];
   final box = Hive.box('todoBox');
 
-  void createInitialData() {
-    TodoModel todoModel1 = TodoModel(
-      taskName: 'Make Tutorial',
-      isCompleted: false,
-    );
-    TodoModel todoModel2 = TodoModel(
-      taskName: 'Do Exercise',
-      isCompleted: false,
-    );
-
-    toDoList = [todoModel1, todoModel2];
+  void loadData(String day) {
+    if (box.get(day) == null) {
+      toDoList = [];
+    } else {
+      toDoList = box.get(day);
+    }
   }
 
-  void loadData() {
-    toDoList = box.get('toDoList');
-  }
-
-  void updateData() {
-    box.put('toDoList', toDoList);
+  void updateData(String day) {
+    box.put(day, toDoList);
   }
 }

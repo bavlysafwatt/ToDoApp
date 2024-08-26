@@ -22,11 +22,16 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
+    database.loadData('today');
+  }
 
-    if (box.get('toDoList') == null) {
-      database.createInitialData();
+  String getDay() {
+    if (today) {
+      return 'today';
+    } else if (tomorrow) {
+      return 'tomorrow';
     } else {
-      database.loadData();
+      return 'nextWeek';
     }
   }
 
@@ -35,7 +40,7 @@ class _HomePageState extends State<HomePage> {
       database.toDoList[index].isCompleted =
           !database.toDoList[index].isCompleted;
     });
-    database.updateData();
+    database.updateData(getDay());
   }
 
   void saveNewTask() {
@@ -47,7 +52,7 @@ class _HomePageState extends State<HomePage> {
         taskName.clear();
       });
       Navigator.pop(context);
-      database.updateData();
+      database.updateData(getDay());
     }
   }
 
@@ -55,7 +60,7 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       database.toDoList.removeAt(index);
     });
-    database.updateData();
+    database.updateData(getDay());
   }
 
   @override
@@ -120,6 +125,7 @@ class _HomePageState extends State<HomePage> {
                         today = true;
                         tomorrow = false;
                         nextWeek = false;
+                        database.loadData(getDay());
                       });
                     },
                     child: DayTile(
@@ -133,6 +139,7 @@ class _HomePageState extends State<HomePage> {
                         today = false;
                         tomorrow = true;
                         nextWeek = false;
+                        database.loadData(getDay());
                       });
                     },
                     child: DayTile(
@@ -146,6 +153,7 @@ class _HomePageState extends State<HomePage> {
                         today = false;
                         tomorrow = false;
                         nextWeek = true;
+                        database.loadData(getDay());
                       });
                     },
                     child: DayTile(
