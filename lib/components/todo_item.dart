@@ -13,7 +13,7 @@ class ToDoItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
+      padding: const EdgeInsets.only(left: 22.0, right: 22, top: 22),
       child: Slidable(
         key: const ValueKey(0),
         endActionPane: ActionPane(
@@ -22,7 +22,7 @@ class ToDoItem extends StatelessWidget {
             SlidableAction(
               spacing: 0,
               onPressed: onDelete,
-              backgroundColor: Colors.red,
+              backgroundColor: Colors.red.shade300,
               foregroundColor: Colors.white,
               icon: Icons.delete,
               label: 'Delete',
@@ -33,29 +33,29 @@ class ToDoItem extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            color: const Color(0xff201f1f),
+            borderRadius: BorderRadius.circular(10),
+            color: Colors.yellow,
           ),
           child: ListTile(
             leading: Checkbox(
               value: todoModel.isCompleted,
               onChanged: onChanged,
-              activeColor: Colors.white,
-              checkColor: Colors.black,
+              activeColor: Colors.black,
+              checkColor: Colors.white,
             ),
             title: Text(
               todoModel.taskName,
               style: TextStyle(
-                color: Colors.white,
-                fontSize: 18,
+                color: Colors.black,
+                fontSize: 16,
                 decoration:
                     todoModel.isCompleted ? TextDecoration.lineThrough : null,
-                decorationColor: todoModel.isCompleted ? Colors.white : null,
+                decorationColor: todoModel.isCompleted ? Colors.black : null,
               ),
             ),
             trailing: const Icon(
               Icons.arrow_back_ios,
-              color: Colors.white,
+              color: Colors.black,
             ),
           ),
         ),

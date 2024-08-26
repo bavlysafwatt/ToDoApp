@@ -59,18 +59,17 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff151515),
+      backgroundColor: Colors.yellow[200],
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
-          'Todo List',
+          'TO DO',
           style: TextStyle(
             color: Colors.black,
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
+            fontSize: 20,
           ),
         ),
-        backgroundColor: const Color(0xff0ab6ab),
+        backgroundColor: Colors.yellow,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -82,7 +81,7 @@ class _HomePageState extends State<HomePage> {
             ),
           );
         },
-        backgroundColor: const Color(0xff0ab6ab),
+        backgroundColor: Colors.yellow,
         child: const Icon(
           Icons.add,
           color: Colors.black,

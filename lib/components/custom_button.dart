@@ -17,7 +17,7 @@ class CustomButton extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
-          color: const Color(0xff151515),
+          color: Colors.yellow,
           borderRadius: BorderRadius.circular(5),
         ),
         width: 80,
@@ -28,7 +28,7 @@ class CustomButton extends StatelessWidget {
               fontFamily: 'Ubuntu',
               fontSize: 14,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: Colors.black,
             ),
           ),
         ),

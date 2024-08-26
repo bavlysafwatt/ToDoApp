@@ -14,14 +14,14 @@ class DialogBox extends StatelessWidget {
       contentPadding: EdgeInsets.zero,
       shadowColor: Colors.transparent,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(5),
       ),
       content: Container(
         height: 150,
         width: 500,
         decoration: BoxDecoration(
-          color: const Color(0xff0ab6ab),
-          borderRadius: BorderRadius.circular(10),
+          color: Colors.yellow[300],
+          borderRadius: BorderRadius.circular(5),
         ),
         child: AddTodoForm(
           onTap: onTap,
