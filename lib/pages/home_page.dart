@@ -14,6 +14,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final box = Hive.box('todoBox');
   Database database = Database();
+  TextEditingController taskName = TextEditingController();
 
   @override
   void initState() {
@@ -24,6 +25,14 @@ class _HomePageState extends State<HomePage> {
     } else {
       database.loadData();
     }
+  }
+
+  void checkBoxChanged(bool? value, int index) {
+    setState(() {
+      database.toDoList[index].isCompleted =
+          !database.toDoList[index].isCompleted;
+    });
+    database.updateData();
   }
 
   @override
@@ -58,8 +67,10 @@ class _HomePageState extends State<HomePage> {
       ),
       body: ListView.builder(
         itemCount: database.toDoList.length,
-        itemBuilder: (context, index) =>
-            ToDoItem(todoModel: database.toDoList[index]),
+        itemBuilder: (context, index) => ToDoItem(
+          todoModel: database.toDoList[index],
+          onChanged: (value) => checkBoxChanged(value, index),
+        ),
       ),
     );
   }
