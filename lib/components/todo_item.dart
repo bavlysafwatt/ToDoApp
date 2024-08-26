@@ -25,13 +25,12 @@ class ToDoItem extends StatelessWidget {
               backgroundColor: Colors.red.shade300,
               foregroundColor: Colors.white,
               icon: Icons.delete,
-              label: 'Delete',
               borderRadius: BorderRadius.circular(12),
             ),
           ],
         ),
         child: Container(
-          padding: const EdgeInsets.all(12),
+          padding: const EdgeInsets.all(18),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             color: Colors.yellow,
