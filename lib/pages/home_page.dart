@@ -49,6 +49,13 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  void deleteTask(int index) {
+    setState(() {
+      database.toDoList.removeAt(index);
+    });
+    database.updateData();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
