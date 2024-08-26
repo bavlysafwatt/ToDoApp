@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/models/todo_model.dart';
 
 class ToDoItem extends StatelessWidget {
-  const ToDoItem({super.key});
+  const ToDoItem({super.key, required this.todoModel});
+
+  final TodoModel todoModel;
 
   @override
   Widget build(BuildContext context) {
@@ -15,16 +18,19 @@ class ToDoItem extends StatelessWidget {
         ),
         child: ListTile(
           leading: Checkbox(
-            value: true,
+            value: todoModel.isCompleted,
             onChanged: (value) {},
             activeColor: Colors.white,
             checkColor: Colors.black,
           ),
-          title: const Text(
-            'Do tutorial',
+          title: Text(
+            todoModel.taskName,
             style: TextStyle(
               color: Colors.white,
               fontSize: 18,
+              decoration:
+                  todoModel.isCompleted ? TextDecoration.lineThrough : null,
+              decorationColor: todoModel.isCompleted ? Colors.white : null,
             ),
           ),
           trailing: const Icon(

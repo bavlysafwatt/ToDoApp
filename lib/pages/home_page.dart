@@ -1,9 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:todo_app/components/dialog_box.dart';
 import 'package:todo_app/components/todo_item.dart';
+import 'package:todo_app/data/database.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final box = Hive.box('todoBox');
+  Database database = Database();
+
+  @override
+  void initState() {
+    super.initState();
+
+    if (box.get('toDoList') == null) {
+      database.createInitialData();
+    } else {
+      database.loadData();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +57,9 @@ class HomePage extends StatelessWidget {
         ),
       ),
       body: ListView.builder(
-        itemCount: 7,
-        itemBuilder: (context, index) => const ToDoItem(),
+        itemCount: database.toDoList.length,
+        itemBuilder: (context, index) =>
+            ToDoItem(todoModel: database.toDoList[index]),
       ),
     );
   }
