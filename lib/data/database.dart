@@ -2,7 +2,7 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:todo_app/models/todo_model.dart';
 
 class Database {
-  List<TodoModel> toDoList = [];
+  List toDoList = [];
   final box = Hive.box('todoBox');
 
   void createInitialData() {
