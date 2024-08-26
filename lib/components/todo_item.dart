@@ -3,10 +3,12 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:todo_app/models/todo_model.dart';
 
 class ToDoItem extends StatelessWidget {
-  const ToDoItem({super.key, required this.todoModel, this.onChanged});
+  const ToDoItem(
+      {super.key, required this.todoModel, this.onChanged, this.onDelete});
 
   final TodoModel todoModel;
   final void Function(bool?)? onChanged;
+  final void Function(BuildContext)? onDelete;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class ToDoItem extends StatelessWidget {
           children: [
             SlidableAction(
               spacing: 0,
-              onPressed: (context) {},
+              onPressed: onDelete,
               backgroundColor: Colors.red,
               foregroundColor: Colors.white,
               icon: Icons.delete,

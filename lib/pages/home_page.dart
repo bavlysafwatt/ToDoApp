@@ -94,6 +94,7 @@ class _HomePageState extends State<HomePage> {
         itemBuilder: (context, index) => ToDoItem(
           todoModel: database.toDoList[index],
           onChanged: (value) => checkBoxChanged(value, index),
+          onDelete: (context) => deleteTask(index),
         ),
       ),
     );
