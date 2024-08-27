@@ -15,7 +15,7 @@ class AddTodoForm extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 20),
+          const SizedBox(height: 15),
           Row(
             children: [
               GestureDetector(
@@ -25,7 +25,7 @@ class AddTodoForm extends StatelessWidget {
                   color: Colors.grey.shade800,
                 ),
               ),
-              const SizedBox(width: 60),
+              const SizedBox(width: 55),
               const Text(
                 'Add New Task',
                 style: TextStyle(

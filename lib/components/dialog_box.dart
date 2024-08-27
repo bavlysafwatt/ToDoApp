@@ -18,8 +18,8 @@ class DialogBox extends StatelessWidget {
       ),
       content: SingleChildScrollView(
         child: Container(
-          height: 250,
-          width: 320,
+          height: 240,
+          width: 300,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
           ),

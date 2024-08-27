@@ -27,7 +27,7 @@ class ToDoItem extends StatelessWidget {
         ],
       ),
       child: CheckboxListTile(
-        activeColor: const Color(0xff279cfb),
+        activeColor: const Color.fromARGB(255, 32, 120, 207),
         value: todoModel.isCompleted,
         onChanged: onChanged,
         controlAffinity: ListTileControlAffinity.leading,

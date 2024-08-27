@@ -15,7 +15,7 @@ class DayTile extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
               decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 14, 209, 180),
+                color: const Color.fromARGB(255, 89, 199, 182),
                 borderRadius: BorderRadius.circular(30),
               ),
               child: Text(

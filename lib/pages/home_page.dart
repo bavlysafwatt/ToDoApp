@@ -89,10 +89,8 @@ class _HomePageState extends State<HomePage> {
           width: MediaQuery.of(context).size.width,
           decoration: const BoxDecoration(
             gradient: LinearGradient(colors: [
-              // ignore: use_full_hex_values_for_flutter_colors
-              Color(0xff232fda2),
-              Color(0xff13d8ca),
-              Color(0xff09adfe),
+              Color(0xff43cea2),
+              Color(0xff185a9d),
             ], begin: Alignment.topLeft, end: Alignment.bottomRight),
           ),
           child: Column(
