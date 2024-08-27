@@ -45,7 +45,7 @@ class CustomTextField extends StatelessWidget {
       cursorColor: Colors.black,
       style: const TextStyle(
         color: Colors.black,
-        fontSize: 18,
+        fontSize: 16,
       ),
     );
   }

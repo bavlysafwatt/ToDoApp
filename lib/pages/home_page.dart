@@ -84,7 +84,7 @@ class _HomePageState extends State<HomePage> {
                     'HELLO\nBAVLY!',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 34,
+                      fontSize: 32,
                       fontWeight: FontWeight.bold,
                     ),
                   ),

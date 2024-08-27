@@ -81,9 +81,9 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Ubuntu
+    - family: SanFrancisco
       fonts:
-        - asset: assets/fonts/Ubuntu-Medium.ttf
+        - asset: assets/fonts/SF-Pro-Text-Black.otf
 
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package

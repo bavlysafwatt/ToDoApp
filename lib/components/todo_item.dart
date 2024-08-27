@@ -35,7 +35,7 @@ class ToDoItem extends StatelessWidget {
           todoModel.taskName,
           style: TextStyle(
             color: Colors.white,
-            fontSize: 20,
+            fontSize: 18,
             fontWeight: FontWeight.w400,
             decoration:
                 todoModel.isCompleted ? TextDecoration.lineThrough : null,

@@ -31,7 +31,7 @@ class DayTile extends StatelessWidget {
         : Text(
             day,
             style: const TextStyle(
-              fontSize: 18,
+              fontSize: 16,
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
