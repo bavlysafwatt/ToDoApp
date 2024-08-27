@@ -19,7 +19,10 @@ class AddTodoForm extends StatelessWidget {
           Row(
             children: [
               GestureDetector(
-                onTap: () => Navigator.pop(context),
+                onTap: () {
+                  title.clear();
+                  Navigator.pop(context);
+                },
                 child: Icon(
                   Icons.cancel,
                   color: Colors.grey.shade800,
